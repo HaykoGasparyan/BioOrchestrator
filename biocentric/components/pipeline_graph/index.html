@@ -1,0 +1,80 @@
+<!doctype html>
+<html><head><meta charset="utf-8"><style id="graph-style"></style></head>
+<body><main id="graph"></main><script>
+// The iframe stays mounted; only changed SVG attributes/text are patched.
+const root = document.getElementById('graph');
+root.dataset.mountId = String(Date.now());
+let previous = null, selected = null, lastHeight = 0;
+const send = (type, values = {}) => parent.postMessage({isStreamlitMessage: true, type, ...values}, '*');
+function resize() {
+  const height = Math.ceil(root.getBoundingClientRect().height) + 4;
+  if (height !== lastHeight) { lastHeight = height; send('streamlit:setFrameHeight', {height}); }
+}
+function patch(current, next) {
+  if (current.nodeType !== next.nodeType || current.nodeName !== next.nodeName) {
+    const replacement = document.importNode(next, true);
+    current.replaceWith(replacement); return replacement;
+  }
+  if (current.nodeType === Node.TEXT_NODE) {
+    if (current.nodeValue !== next.nodeValue) current.nodeValue = next.nodeValue;
+    return current;
+  }
+  if (current.nodeType !== Node.ELEMENT_NODE) return current;
+  for (const attribute of [...current.attributes]) {
+    if (!next.hasAttribute(attribute.name)) current.removeAttribute(attribute.name);
+  }
+  for (const attribute of next.attributes) {
+    if (current.getAttribute(attribute.name) !== attribute.value) current.setAttribute(attribute.name, attribute.value);
+  }
+  const keyed = new Map([...current.children].filter(n => n.dataset.graphKey).map(n => [n.dataset.graphKey, n]));
+  const retained = new Set();
+  let index = 0;
+  for (const child of [...next.childNodes]) {
+    const key = child.nodeType === Node.ELEMENT_NODE && child.dataset.graphKey;
+    let existing = key ? keyed.get(key) : current.childNodes[index];
+    if (!existing || retained.has(existing) || (!key && existing.nodeType === Node.ELEMENT_NODE && existing.dataset.graphKey)) {
+      existing = document.importNode(child, true);
+      current.insertBefore(existing, current.childNodes[index] || null);
+    } else {
+      if (existing !== current.childNodes[index]) current.insertBefore(existing, current.childNodes[index] || null);
+      existing = patch(existing, child);
+    }
+    retained.add(existing); index++;
+  }
+  for (const child of [...current.childNodes]) if (!retained.has(child)) child.remove();
+  return current;
+}
+function showDetail(event) {
+  const item = event.target.closest('[data-detail]');
+  if (!item) return;
+  if (event.type === 'keydown' && !['Enter', ' '].includes(event.key)) return;
+  event.preventDefault();
+  selected = item.dataset.graphKey;
+  root.querySelector('#detail').textContent = item.dataset.detail;
+}
+root.addEventListener('click', showDetail);
+root.addEventListener('keydown', showDetail);
+window.addEventListener('message', event => {
+  if (event.source !== parent || event.data.type !== 'streamlit:render') return;
+  const html = event.data.args.html;
+  if (html === previous) return;
+  previous = html;
+  const next = new DOMParser().parseFromString(html, 'text/html');
+  const css = next.querySelector('style').textContent;
+  const style = document.getElementById('graph-style');
+  if (style.textContent !== css) style.textContent = css;
+  for (const selector of ['.board', '.legend', '#detail']) {
+    const existing = root.querySelector(selector), incoming = next.querySelector(selector);
+    if (!existing) root.appendChild(document.importNode(incoming, true));
+    else if (selector !== '#detail') patch(existing, incoming);
+  }
+  if (selected) {
+    const item = [...root.querySelectorAll('[data-graph-key]')].find(n => n.dataset.graphKey === selected);
+    root.querySelector('#detail').textContent = item ? item.dataset.detail : '';
+  }
+  root.dataset.updates = String(Number(root.dataset.updates || 0) + 1);
+  requestAnimationFrame(resize);
+});
+new ResizeObserver(resize).observe(root);
+send('streamlit:componentReady', {apiVersion: 1});
+</script></body></html>
