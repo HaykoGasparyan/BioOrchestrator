@@ -1,0 +1,34 @@
+# Local Python environments and build products
+.venv/
+.venv-*/
+venv/
+__pycache__/
+.pytest_cache/
+*.py[cod]
+*.egg-info/
+build/
+dist/
+.coverage
+htmlcov/
+
+# Local experiments, caches, downloaded tools and generated results
+.biocentric/
+.tools/
+runs/
+
+# Credentials and machine-local configuration
+.env
+.env.*
+!.env.example
+.streamlit/secrets.toml
+*.pem
+*.key
+id_ed25519*
+id_rsa*
+
+# Agent/editor state
+.agents/
+.codex/
+.vscode/
+.idea/
+.DS_Store

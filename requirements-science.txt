@@ -1,0 +1,8 @@
+# Core local scientific adapters. AutoDock Vina can use the official 1.2.7 executable.
+rdkit==2025.3.6
+meeko==0.7.1
+gemmi==0.7.3
+posebusters==0.5.1
+numpy==2.3.3
+scipy==1.16.2
+# Optional platform-dependent adapters are documented in docs/science.md.

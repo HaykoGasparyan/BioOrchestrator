@@ -1,0 +1,27 @@
+[build-system]
+requires = ["setuptools>=75"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "biocentricgpt"
+version = "0.1.0"
+description = "An inspectable, evidence-grounded early-discovery workbench"
+requires-python = ">=3.11,<3.14"
+dependencies = ["pydantic==2.12.3", "httpx==0.28.1", "streamlit==1.50.0", "openai==2.26.0"]
+
+[project.optional-dependencies]
+science = ["rdkit==2025.3.6", "meeko==0.7.1", "gemmi==0.7.3", "posebusters==0.5.1", "numpy==2.3.3", "scipy==1.16.2"]
+test = ["pytest==8.4.2"]
+
+[project.scripts]
+biocentric = "biocentric.cli:main"
+
+[tool.setuptools.packages.find]
+include = ["biocentric*"]
+
+[tool.setuptools.package-data]
+biocentric = ["prompts/*.md", "assets/*", "*.css", "*.html", "components/pipeline_graph/*.html"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+markers = ["live: requires scientific executables and runs real calculations"]

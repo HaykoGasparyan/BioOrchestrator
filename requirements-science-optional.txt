@@ -1,0 +1,10 @@
+# First install these dependencies. PLIP separately uses --no-deps --no-build-isolation.
+openbabel-wheel==3.1.1.22
+pdb2pqr==3.7.1
+propka==3.5.1
+openmm==8.3.1
+lxml==6.0.2
+setuptools==80.9.0
+wheel==0.45.1
+pdbfixer @ https://github.com/openmm/pdbfixer/archive/refs/tags/v1.12.tar.gz
+# Then: python -m pip install --no-deps --no-build-isolation plip==2.4.0

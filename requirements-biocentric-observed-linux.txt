@@ -1,0 +1,55 @@
+# Observed working BioCentric model runtime, Ubuntu x86_64, Python 3.9.7.
+# Captured 2026-09-26 from the pre-existing Linux model environment.
+# This is a focused version record, NOT a fully resolved/hash-locked clean build.
+# No installation/rebuild from this file has been performed or claimed.
+# Keep this environment separate from the Python 3.12 application environment.
+#
+# First install the matching PyTorch CUDA 11.8 wheel from its official index:
+#   python -m pip install torch==2.1.0 --index-url https://download.pytorch.org/whl/cu118
+# Then install this file. PyG extension binaries must match torch 2.1 / cu118.
+# Official sources and fresh-environment verification: docs/biocentric-model.md.
+--find-links https://data.pyg.org/whl/torch-2.1.0+cu118.html
+
+torch==2.1.0+cu118
+torch-geometric==2.3.0
+torch-scatter==2.1.2+pt21cu118
+torch-cluster==1.6.3+pt21cu118
+torch-sparse==0.6.18+pt21cu118
+torch-spline-conv==1.2.2+pt21cu118
+
+# Native molecular/graph preprocessing and inference utilities.
+# rdkit-pypi is the actual installed distribution name of this historical wheel.
+rdkit-pypi==2022.9.5
+numpy==1.26.4
+pandas==2.3.1
+networkx==3.0
+scikit-learn==1.3.2
+scipy==1.11.4
+PyYAML==5.4.1
+plyfile==1.0.3
+einops==0.8.0
+tqdm==4.65.0
+
+# Relevant observed scientific/data dependency versions, not unrelated conda apps.
+joblib==1.3.2
+threadpoolctl==3.2.0
+python-dateutil==2.8.2
+pytz==2023.3.post1
+tzdata==2024.1
+typing-extensions==4.12.2
+filelock==3.14.0
+sympy==1.12
+mpmath==1.3.0
+Jinja2==3.1.2
+MarkupSafe==2.1.3
+fsspec==2024.3.1
+triton==2.1.0
+requests==2.28.2
+urllib3==1.26.20
+certifi==2023.11.17
+charset-normalizer==3.3.2
+idna==3.6
+psutil==5.9.7
+pyparsing==3.1.1
+Pillow==10.0.1
+six==1.16.0

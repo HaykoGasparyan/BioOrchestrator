@@ -1,0 +1,1179 @@
+{
+  "ProjectSpec": {
+    "additionalProperties": false,
+    "properties": {
+      "name": {
+        "maxLength": 160,
+        "minLength": 1,
+        "title": "Name",
+        "type": "string"
+      },
+      "target": {
+        "maxLength": 20000,
+        "minLength": 1,
+        "title": "Target",
+        "type": "string"
+      },
+      "organism": {
+        "maxLength": 160,
+        "minLength": 1,
+        "title": "Organism",
+        "type": "string"
+      },
+      "context": {
+        "default": "",
+        "maxLength": 4000,
+        "title": "Context",
+        "type": "string"
+      },
+      "intended_effect": {
+        "anyOf": [
+          {
+            "type": "string"
+          },
+          {
+            "type": "null"
+          }
+        ],
+        "default": null,
+        "title": "Intended Effect"
+      },
+      "isoform": {
+        "anyOf": [
+          {
+            "type": "string"
+          },
+          {
+            "type": "null"
+          }
+        ],
+        "default": null,
+        "title": "Isoform"
+      },
+      "mutations": {
+        "items": {
+          "type": "string"
+        },
+        "title": "Mutations",
+        "type": "array"
+      },
+      "shortlist_size": {
+        "default": 10,
+        "maximum": 1000,
+        "minimum": 1,
+        "title": "Shortlist Size",
+        "type": "integer"
+      },
+      "cpu": {
+        "default": 1,
+        "maximum": 16,
+        "minimum": 1,
+        "title": "Cpu",
+        "type": "integer"
+      },
+      "has_gpu": {
+        "default": false,
+        "title": "Has Gpu",
+        "type": "boolean"
+      },
+      "commercial_tools": {
+        "items": {
+          "type": "string"
+        },
+        "title": "Commercial Tools",
+        "type": "array"
+      },
+      "compute_budget_seconds": {
+        "default": 600,
+        "maximum": 86400,
+        "minimum": 10,
+        "title": "Compute Budget Seconds",
+        "type": "integer"
+      },
+      "local_only": {
+        "default": true,
+        "title": "Local Only",
+        "type": "boolean"
+      },
+      "allow_model": {
+        "default": false,
+        "title": "Allow Model",
+        "type": "boolean"
+      },
+      "model": {
+        "default": "gpt-4.1-mini",
+        "title": "Model",
+        "type": "string"
+      },
+      "max_model_calls": {
+        "default": 3,
+        "maximum": 10,
+        "minimum": 0,
+        "title": "Max Model Calls",
+        "type": "integer"
+      },
+      "max_model_output_tokens": {
+        "default": 1500,
+        "maximum": 4000,
+        "minimum": 200,
+        "title": "Max Model Output Tokens",
+        "type": "integer"
+      },
+      "workflow_kind": {
+        "default": "noncovalent",
+        "title": "Workflow Kind",
+        "type": "string"
+      },
+      "seed": {
+        "default": 42,
+        "maximum": 2147483647,
+        "minimum": 1,
+        "title": "Seed",
+        "type": "integer"
+      },
+      "mode": {
+        "default": "live",
+        "enum": [
+          "live",
+          "offline_fixture"
+        ],
+        "title": "Mode",
+        "type": "string"
+      }
+    },
+    "required": [
+      "name",
+      "target",
+      "organism"
+    ],
+    "title": "ProjectSpec",
+    "type": "object"
+  },
+  "TargetIdentity": {
+    "additionalProperties": false,
+    "properties": {
+      "accession": {
+        "anyOf": [
+          {
+            "type": "string"
+          },
+          {
+            "type": "null"
+          }
+        ],
+        "default": null,
+        "title": "Accession"
+      },
+      "name": {
+        "title": "Name",
+        "type": "string"
+      },
+      "organism": {
+        "title": "Organism",
+        "type": "string"
+      },
+      "sequence": {
+        "anyOf": [
+          {
+            "type": "string"
+          },
+          {
+            "type": "null"
+          }
+        ],
+        "default": null,
+        "title": "Sequence"
+      },
+      "isoform": {
+        "anyOf": [
+          {
+            "type": "string"
+          },
+          {
+            "type": "null"
+          }
+        ],
+        "default": null,
+        "title": "Isoform"
+      },
+      "mutations": {
+        "items": {
+          "type": "string"
+        },
+        "title": "Mutations",
+        "type": "array"
+      },
+      "construct": {
+        "anyOf": [
+          {
+            "type": "string"
+          },
+          {
+            "type": "null"
+          }
+        ],
+        "default": null,
+        "title": "Construct"
+      },
+      "domain": {
+        "anyOf": [
+          {
+            "type": "string"
+          },
+          {
+            "type": "null"
+          }
+        ],
+        "default": null,
+        "title": "Domain"
+      }
+    },
+    "required": [
+      "name",
+      "organism"
+    ],
+    "title": "TargetIdentity",
+    "type": "object"
+  },
+  "EvidenceRecord": {
+    "additionalProperties": false,
+    "properties": {
+      "id": {
+        "title": "Id",
+        "type": "string"
+      },
+      "source": {
+        "title": "Source",
+        "type": "string"
+      },
+      "source_id": {
+        "title": "Source Id",
+        "type": "string"
+      },
+      "url": {
+        "title": "Url",
+        "type": "string"
+      },
+      "retrieved_at": {
+        "title": "Retrieved At",
+        "type": "string"
+      },
+      "evidence_type": {
+        "title": "Evidence Type",
+        "type": "string"
+      },
+      "text": {
+        "title": "Text",
+        "type": "string"
+      },
+      "location": {
+        "title": "Location",
+        "type": "string"
+      },
+      "claim_kind": {
+        "default": "retrieved_observation",
+        "title": "Claim Kind",
+        "type": "string"
+      },
+      "instruction_trust": {
+        "const": "untrusted_data",
+        "default": "untrusted_data",
+        "title": "Instruction Trust",
+        "type": "string"
+      }
+    },
+    "required": [
+      "id",
+      "source",
+      "source_id",
+      "url",
+      "retrieved_at",
+      "evidence_type",
+      "text",
+      "location"
+    ],
+    "title": "EvidenceRecord",
+    "type": "object"
+  },
+  "AssayMeasurement": {
+    "additionalProperties": false,
+    "properties": {
+      "compound_id": {
+        "title": "Compound Id",
+        "type": "string"
+      },
+      "endpoint": {
+        "enum": [
+          "Kd",
+          "Ki",
+          "IC50",
+          "EC50",
+          "percent_inhibition",
+          "other"
+        ],
+        "title": "Endpoint",
+        "type": "string"
+      },
+      "value": {
+        "title": "Value",
+        "type": "number"
+      },
+      "units": {
+        "title": "Units",
+        "type": "string"
+      },
+      "relation": {
+        "default": "=",
+        "enum": [
+          "=",
+          "<",
+          "<=",
+          ">",
+          ">=",
+          "~"
+        ],
+        "title": "Relation",
+        "type": "string"
+      },
+      "assay_id": {
+        "title": "Assay Id",
+        "type": "string"
+      },
+      "organism": {
+        "title": "Organism",
+        "type": "string"
+      },
+      "construct": {
+        "anyOf": [
+          {
+            "type": "string"
+          },
+          {
+            "type": "null"
+          }
+        ],
+        "default": null,
+        "title": "Construct"
+      },
+      "assay_format": {
+        "anyOf": [
+          {
+            "type": "string"
+          },
+          {
+            "type": "null"
+          }
+        ],
+        "default": null,
+        "title": "Assay Format"
+      },
+      "conditions": {
+        "anyOf": [
+          {
+            "type": "string"
+          },
+          {
+            "type": "null"
+          }
+        ],
+        "default": null,
+        "title": "Conditions"
+      },
+      "publication": {
+        "anyOf": [
+          {
+            "type": "string"
+          },
+          {
+            "type": "null"
+          }
+        ],
+        "default": null,
+        "title": "Publication"
+      },
+      "original": {
+        "additionalProperties": true,
+        "title": "Original",
+        "type": "object"
+      },
+      "value_molar": {
+        "anyOf": [
+          {
+            "type": "number"
+          },
+          {
+            "type": "null"
+          }
+        ],
+        "default": null,
+        "title": "Value Molar"
+      },
+      "source": {
+        "default": "user_import",
+        "title": "Source",
+        "type": "string"
+      },
+      "status": {
+        "const": "experimentally_confirmed_result_imported_by_user",
+        "default": "experimentally_confirmed_result_imported_by_user",
+        "title": "Status",
+        "type": "string"
+      }
+    },
+    "required": [
+      "compound_id",
+      "endpoint",
+      "value",
+      "units",
+      "assay_id",
+      "organism"
+    ],
+    "title": "AssayMeasurement",
+    "type": "object"
+  },
+  "StructureCandidate": {
+    "additionalProperties": false,
+    "properties": {
+      "id": {
+        "title": "Id",
+        "type": "string"
+      },
+      "source": {
+        "title": "Source",
+        "type": "string"
+      },
+      "format": {
+        "enum": [
+          "pdb",
+          "mmcif",
+          "pdbqt"
+        ],
+        "title": "Format",
+        "type": "string"
+      },
+      "path": {
+        "anyOf": [
+          {
+            "type": "string"
+          },
+          {
+            "type": "null"
+          }
+        ],
+        "default": null,
+        "title": "Path"
+      },
+      "accession": {
+        "anyOf": [
+          {
+            "type": "string"
+          },
+          {
+            "type": "null"
+          }
+        ],
+        "default": null,
+        "title": "Accession"
+      },
+      "quality": {
+        "additionalProperties": true,
+        "title": "Quality",
+        "type": "object"
+      },
+      "uncertain_regions": {
+        "items": {
+          "type": "string"
+        },
+        "title": "Uncertain Regions",
+        "type": "array"
+      },
+      "supported": {
+        "anyOf": [
+          {
+            "type": "boolean"
+          },
+          {
+            "type": "null"
+          }
+        ],
+        "default": null,
+        "title": "Supported"
+      }
+    },
+    "required": [
+      "id",
+      "source",
+      "format"
+    ],
+    "title": "StructureCandidate",
+    "type": "object"
+  },
+  "PreparationRecord": {
+    "additionalProperties": false,
+    "properties": {
+      "input_hash": {
+        "title": "Input Hash",
+        "type": "string"
+      },
+      "output_hash": {
+        "title": "Output Hash",
+        "type": "string"
+      },
+      "method": {
+        "title": "Method",
+        "type": "string"
+      },
+      "version": {
+        "title": "Version",
+        "type": "string"
+      },
+      "ph_assumption": {
+        "anyOf": [
+          {
+            "type": "number"
+          },
+          {
+            "type": "null"
+          }
+        ],
+        "default": null,
+        "title": "Ph Assumption"
+      },
+      "changes": {
+        "items": {
+          "type": "string"
+        },
+        "title": "Changes",
+        "type": "array"
+      },
+      "warnings": {
+        "items": {
+          "type": "string"
+        },
+        "title": "Warnings",
+        "type": "array"
+      },
+      "parent_id": {
+        "anyOf": [
+          {
+            "type": "string"
+          },
+          {
+            "type": "null"
+          }
+        ],
+        "default": null,
+        "title": "Parent Id"
+      },
+      "state_id": {
+        "anyOf": [
+          {
+            "type": "string"
+          },
+          {
+            "type": "null"
+          }
+        ],
+        "default": null,
+        "title": "State Id"
+      },
+      "job_id": {
+        "title": "Job Id",
+        "type": "string"
+      }
+    },
+    "required": [
+      "input_hash",
+      "output_hash",
+      "method",
+      "version",
+      "job_id"
+    ],
+    "title": "PreparationRecord",
+    "type": "object"
+  },
+  "CompoundParent": {
+    "additionalProperties": false,
+    "properties": {
+      "id": {
+        "title": "Id",
+        "type": "string"
+      },
+      "smiles": {
+        "title": "Smiles",
+        "type": "string"
+      },
+      "source_id": {
+        "anyOf": [
+          {
+            "type": "string"
+          },
+          {
+            "type": "null"
+          }
+        ],
+        "default": null,
+        "title": "Source Id"
+      },
+      "original_artifact": {
+        "title": "Original Artifact",
+        "type": "string"
+      }
+    },
+    "required": [
+      "id",
+      "smiles",
+      "original_artifact"
+    ],
+    "title": "CompoundParent",
+    "type": "object"
+  },
+  "CompoundState": {
+    "additionalProperties": false,
+    "properties": {
+      "id": {
+        "title": "Id",
+        "type": "string"
+      },
+      "parent_id": {
+        "title": "Parent Id",
+        "type": "string"
+      },
+      "smiles": {
+        "title": "Smiles",
+        "type": "string"
+      },
+      "sdf_artifact": {
+        "title": "Sdf Artifact",
+        "type": "string"
+      },
+      "assumptions": {
+        "items": {
+          "type": "string"
+        },
+        "title": "Assumptions",
+        "type": "array"
+      }
+    },
+    "required": [
+      "id",
+      "parent_id",
+      "smiles",
+      "sdf_artifact"
+    ],
+    "title": "CompoundState",
+    "type": "object"
+  },
+  "ToolSpec": {
+    "additionalProperties": false,
+    "properties": {
+      "name": {
+        "title": "Name",
+        "type": "string"
+      },
+      "role": {
+        "title": "Role",
+        "type": "string"
+      },
+      "documentation": {
+        "title": "Documentation",
+        "type": "string"
+      },
+      "pinned_version": {
+        "title": "Pinned Version",
+        "type": "string"
+      },
+      "inputs": {
+        "items": {
+          "type": "string"
+        },
+        "title": "Inputs",
+        "type": "array"
+      },
+      "outputs": {
+        "items": {
+          "type": "string"
+        },
+        "title": "Outputs",
+        "type": "array"
+      },
+      "dependencies": {
+        "items": {
+          "type": "string"
+        },
+        "title": "Dependencies",
+        "type": "array"
+      },
+      "hardware": {
+        "default": "CPU",
+        "title": "Hardware",
+        "type": "string"
+      },
+      "code_terms": {
+        "default": "See official documentation",
+        "title": "Code Terms",
+        "type": "string"
+      },
+      "data_terms": {
+        "default": "Source-specific terms; retain provenance",
+        "title": "Data Terms",
+        "type": "string"
+      },
+      "model_terms": {
+        "anyOf": [
+          {
+            "type": "string"
+          },
+          {
+            "type": "null"
+          }
+        ],
+        "default": null,
+        "title": "Model Terms"
+      },
+      "external_data": {
+        "default": "None",
+        "title": "External Data",
+        "type": "string"
+      },
+      "cost_class": {
+        "default": "local",
+        "title": "Cost Class",
+        "type": "string"
+      },
+      "implementation_status": {
+        "title": "Implementation Status",
+        "type": "string"
+      },
+      "validation_status": {
+        "default": "unverified",
+        "title": "Validation Status",
+        "type": "string"
+      },
+      "health_check": {
+        "title": "Health Check",
+        "type": "string"
+      }
+    },
+    "required": [
+      "name",
+      "role",
+      "documentation",
+      "pinned_version",
+      "inputs",
+      "outputs",
+      "implementation_status",
+      "health_check"
+    ],
+    "title": "ToolSpec",
+    "type": "object"
+  },
+  "PipelinePlan": {
+    "additionalProperties": false,
+    "properties": {
+      "strategy": {
+        "enum": [
+          "structure_based",
+          "ligand_based",
+          "further_experiments"
+        ],
+        "title": "Strategy",
+        "type": "string"
+      },
+      "rationale": {
+        "title": "Rationale",
+        "type": "string"
+      },
+      "assumptions": {
+        "items": {
+          "type": "string"
+        },
+        "title": "Assumptions",
+        "type": "array"
+      },
+      "prerequisites": {
+        "items": {
+          "type": "string"
+        },
+        "title": "Prerequisites",
+        "type": "array"
+      },
+      "stages": {
+        "items": {
+          "type": "string"
+        },
+        "title": "Stages",
+        "type": "array"
+      },
+      "status": {
+        "default": "proposed",
+        "title": "Status",
+        "type": "string"
+      }
+    },
+    "required": [
+      "strategy",
+      "rationale",
+      "assumptions",
+      "prerequisites",
+      "stages"
+    ],
+    "title": "PipelinePlan",
+    "type": "object"
+  },
+  "BenchmarkResult": {
+    "additionalProperties": false,
+    "properties": {
+      "status": {
+        "enum": [
+          "passed",
+          "failed",
+          "exploratory",
+          "not_evaluated"
+        ],
+        "title": "Status",
+        "type": "string"
+      },
+      "criteria": {
+        "additionalProperties": true,
+        "title": "Criteria",
+        "type": "object"
+      },
+      "metrics": {
+        "additionalProperties": true,
+        "title": "Metrics",
+        "type": "object"
+      },
+      "dataset_sha256": {
+        "anyOf": [
+          {
+            "type": "string"
+          },
+          {
+            "type": "null"
+          }
+        ],
+        "default": null,
+        "title": "Dataset Sha256"
+      },
+      "tuning_ids": {
+        "items": {
+          "type": "string"
+        },
+        "title": "Tuning Ids",
+        "type": "array"
+      },
+      "evaluation_ids": {
+        "items": {
+          "type": "string"
+        },
+        "title": "Evaluation Ids",
+        "type": "array"
+      },
+      "limitations": {
+        "items": {
+          "type": "string"
+        },
+        "title": "Limitations",
+        "type": "array"
+      }
+    },
+    "required": [
+      "status",
+      "criteria",
+      "metrics"
+    ],
+    "title": "BenchmarkResult",
+    "type": "object"
+  },
+  "JobRecord": {
+    "additionalProperties": false,
+    "properties": {
+      "id": {
+        "title": "Id",
+        "type": "string"
+      },
+      "project_id": {
+        "title": "Project Id",
+        "type": "string"
+      },
+      "status": {
+        "enum": [
+          "queued",
+          "running",
+          "blocked",
+          "completed",
+          "failed",
+          "cancelled"
+        ],
+        "title": "Status",
+        "type": "string"
+      },
+      "created_at": {
+        "title": "Created At",
+        "type": "string"
+      },
+      "updated_at": {
+        "title": "Updated At",
+        "type": "string"
+      },
+      "attempts": {
+        "default": 0,
+        "title": "Attempts",
+        "type": "integer"
+      },
+      "cancel_requested": {
+        "default": false,
+        "title": "Cancel Requested",
+        "type": "boolean"
+      },
+      "lease_until": {
+        "anyOf": [
+          {
+            "type": "number"
+          },
+          {
+            "type": "null"
+          }
+        ],
+        "default": null,
+        "title": "Lease Until"
+      },
+      "error": {
+        "anyOf": [
+          {
+            "type": "string"
+          },
+          {
+            "type": "null"
+          }
+        ],
+        "default": null,
+        "title": "Error"
+      }
+    },
+    "required": [
+      "id",
+      "project_id",
+      "status",
+      "created_at",
+      "updated_at"
+    ],
+    "title": "JobRecord",
+    "type": "object"
+  },
+  "PoseResult": {
+    "additionalProperties": false,
+    "properties": {
+      "compound_id": {
+        "title": "Compound Id",
+        "type": "string"
+      },
+      "state_id": {
+        "title": "State Id",
+        "type": "string"
+      },
+      "job_id": {
+        "title": "Job Id",
+        "type": "string"
+      },
+      "artifact": {
+        "title": "Artifact",
+        "type": "string"
+      },
+      "engine": {
+        "title": "Engine",
+        "type": "string"
+      },
+      "version": {
+        "title": "Version",
+        "type": "string"
+      },
+      "score": {
+        "title": "Score",
+        "type": "number"
+      },
+      "units": {
+        "title": "Units",
+        "type": "string"
+      },
+      "direction": {
+        "enum": [
+          "lower_is_better",
+          "higher_is_better"
+        ],
+        "title": "Direction",
+        "type": "string"
+      },
+      "validity": {
+        "additionalProperties": true,
+        "title": "Validity",
+        "type": "object"
+      }
+    },
+    "required": [
+      "compound_id",
+      "state_id",
+      "job_id",
+      "artifact",
+      "engine",
+      "version",
+      "score",
+      "units",
+      "direction",
+      "validity"
+    ],
+    "title": "PoseResult",
+    "type": "object"
+  },
+  "CandidateAssessment": {
+    "additionalProperties": false,
+    "properties": {
+      "compound_id": {
+        "title": "Compound Id",
+        "type": "string"
+      },
+      "rank": {
+        "title": "Rank",
+        "type": "integer"
+      },
+      "selected": {
+        "title": "Selected",
+        "type": "boolean"
+      },
+      "rationale": {
+        "title": "Rationale",
+        "type": "string"
+      },
+      "metrics": {
+        "additionalProperties": true,
+        "title": "Metrics",
+        "type": "object"
+      },
+      "missing_evidence": {
+        "items": {
+          "type": "string"
+        },
+        "title": "Missing Evidence",
+        "type": "array"
+      },
+      "job_id": {
+        "title": "Job Id",
+        "type": "string"
+      },
+      "artifact_ids": {
+        "items": {
+          "type": "string"
+        },
+        "title": "Artifact Ids",
+        "type": "array"
+      },
+      "status": {
+        "default": "exploratory",
+        "title": "Status",
+        "type": "string"
+      }
+    },
+    "required": [
+      "compound_id",
+      "rank",
+      "selected",
+      "rationale",
+      "metrics",
+      "missing_evidence",
+      "job_id",
+      "artifact_ids"
+    ],
+    "title": "CandidateAssessment",
+    "type": "object"
+  },
+  "RunManifest": {
+    "additionalProperties": false,
+    "properties": {
+      "schema_version": {
+        "default": "1.0",
+        "title": "Schema Version",
+        "type": "string"
+      },
+      "run_id": {
+        "title": "Run Id",
+        "type": "string"
+      },
+      "project_id": {
+        "title": "Project Id",
+        "type": "string"
+      },
+      "created_at": {
+        "title": "Created At",
+        "type": "string"
+      },
+      "status": {
+        "title": "Status",
+        "type": "string"
+      },
+      "spec": {
+        "additionalProperties": true,
+        "title": "Spec",
+        "type": "object"
+      },
+      "input_hashes": {
+        "additionalProperties": {
+          "type": "string"
+        },
+        "title": "Input Hashes",
+        "type": "object"
+      },
+      "artifacts": {
+        "items": {
+          "additionalProperties": true,
+          "type": "object"
+        },
+        "title": "Artifacts",
+        "type": "array"
+      },
+      "jobs": {
+        "items": {
+          "additionalProperties": true,
+          "type": "object"
+        },
+        "title": "Jobs",
+        "type": "array"
+      },
+      "decisions": {
+        "items": {
+          "additionalProperties": true,
+          "type": "object"
+        },
+        "title": "Decisions",
+        "type": "array"
+      },
+      "environment": {
+        "additionalProperties": true,
+        "title": "Environment",
+        "type": "object"
+      },
+      "limitations": {
+        "items": {
+          "type": "string"
+        },
+        "title": "Limitations",
+        "type": "array"
+      }
+    },
+    "required": [
+      "run_id",
+      "project_id",
+      "created_at",
+      "status",
+      "spec",
+      "input_hashes",
+      "artifacts",
+      "jobs",
+      "decisions",
+      "environment",
+      "limitations"
+    ],
+    "title": "RunManifest",
+    "type": "object"
+  }
+}

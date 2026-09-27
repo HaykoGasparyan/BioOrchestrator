@@ -1,0 +1,387 @@
+[
+  {
+    "name": "UniProt",
+    "role": "Target identity and sequence",
+    "documentation": "https://www.uniprot.org/help/api_queries",
+    "pinned_version": "REST v1",
+    "inputs": [
+      "protein query"
+    ],
+    "outputs": [
+      "identity"
+    ],
+    "dependencies": [
+      "httpx==0.28.1"
+    ],
+    "hardware": "CPU",
+    "code_terms": "See official documentation",
+    "data_terms": "Source-specific terms; retain provenance",
+    "model_terms": null,
+    "external_data": "Public target query / identifiers; disabled in local-only projects",
+    "cost_class": "public API",
+    "implementation_status": "implemented",
+    "validation_status": "contract tests; see docs/retrieval.md for live verification",
+    "health_check": "Requires network; cached responses remain usable"
+  },
+  {
+    "name": "Europe PMC",
+    "role": "Abstract evidence",
+    "documentation": "https://europepmc.org/RestfulWebService",
+    "pinned_version": "REST v6.9",
+    "inputs": [
+      "query"
+    ],
+    "outputs": [
+      "abstract records"
+    ],
+    "dependencies": [
+      "httpx==0.28.1"
+    ],
+    "hardware": "CPU",
+    "code_terms": "See official documentation",
+    "data_terms": "Source-specific terms; retain provenance",
+    "model_terms": null,
+    "external_data": "Public target query / identifiers; disabled in local-only projects",
+    "cost_class": "public API",
+    "implementation_status": "implemented",
+    "validation_status": "contract tests; see docs/retrieval.md for live verification",
+    "health_check": "Requires network; cached responses remain usable"
+  },
+  {
+    "name": "Open Targets",
+    "role": "Disease association",
+    "documentation": "https://platform-docs.opentargets.org/data-access/graphql-api",
+    "pinned_version": "GraphQL v4",
+    "inputs": [
+      "Ensembl target"
+    ],
+    "outputs": [
+      "associations"
+    ],
+    "dependencies": [
+      "httpx==0.28.1"
+    ],
+    "hardware": "CPU",
+    "code_terms": "See official documentation",
+    "data_terms": "Source-specific terms; retain provenance",
+    "model_terms": null,
+    "external_data": "Public target query / identifiers; disabled in local-only projects",
+    "cost_class": "public API",
+    "implementation_status": "implemented",
+    "validation_status": "contract tests; see docs/retrieval.md for live verification",
+    "health_check": "Requires network; cached responses remain usable"
+  },
+  {
+    "name": "RCSB PDB",
+    "role": "Structure metadata",
+    "documentation": "https://data.rcsb.org/",
+    "pinned_version": "Data API v1",
+    "inputs": [
+      "accession"
+    ],
+    "outputs": [
+      "structure metadata"
+    ],
+    "dependencies": [
+      "httpx==0.28.1"
+    ],
+    "hardware": "CPU",
+    "code_terms": "See official documentation",
+    "data_terms": "Source-specific terms; retain provenance",
+    "model_terms": null,
+    "external_data": "Public target query / identifiers; disabled in local-only projects",
+    "cost_class": "public API",
+    "implementation_status": "implemented",
+    "validation_status": "contract tests; see docs/retrieval.md for live verification",
+    "health_check": "Requires network; cached responses remain usable"
+  },
+  {
+    "name": "ChEMBL",
+    "role": "Known chemistry and assays",
+    "documentation": "https://www.ebi.ac.uk/chembl/api/data/docs",
+    "pinned_version": "REST data API",
+    "inputs": [
+      "target"
+    ],
+    "outputs": [
+      "assay measurements"
+    ],
+    "dependencies": [
+      "httpx==0.28.1"
+    ],
+    "hardware": "CPU",
+    "code_terms": "See official documentation",
+    "data_terms": "Source-specific terms; retain provenance",
+    "model_terms": null,
+    "external_data": "Public target query / identifiers; disabled in local-only projects",
+    "cost_class": "public API",
+    "implementation_status": "implemented",
+    "validation_status": "contract tests; see docs/retrieval.md for live verification",
+    "health_check": "Requires network; cached responses remain usable"
+  },
+  {
+    "name": "PubChem",
+    "role": "Chemical identity",
+    "documentation": "https://pubchem.ncbi.nlm.nih.gov/docs/pug-rest",
+    "pinned_version": "PUG REST",
+    "inputs": [
+      "compound identifier"
+    ],
+    "outputs": [
+      "metadata"
+    ],
+    "dependencies": [
+      "httpx==0.28.1"
+    ],
+    "hardware": "CPU",
+    "code_terms": "See official documentation",
+    "data_terms": "Source-specific terms; retain provenance",
+    "model_terms": null,
+    "external_data": "Public target query / identifiers; disabled in local-only projects",
+    "cost_class": "public API",
+    "implementation_status": "implemented",
+    "validation_status": "contract tests; see docs/retrieval.md for live verification",
+    "health_check": "Requires network; cached responses remain usable"
+  },
+  {
+    "name": "RDKit",
+    "role": "Scientific computation",
+    "documentation": "https://www.rdkit.org/docs/",
+    "pinned_version": "2025.3.6",
+    "inputs": [
+      "SMILES / SDF"
+    ],
+    "outputs": [
+      "canonical SDF + descriptors"
+    ],
+    "dependencies": [
+      "rdkit"
+    ],
+    "hardware": "CPU",
+    "code_terms": "See pinned upstream license; PLIP GPL-2.0, Vina Apache-2.0, RDKit BSD-3-Clause",
+    "data_terms": "Source-specific terms; retain provenance",
+    "model_terms": null,
+    "external_data": "None",
+    "cost_class": "local",
+    "implementation_status": "implemented supported adapter",
+    "validation_status": "See docs/science.md; health does not establish scientific validity",
+    "health_check": "available"
+  },
+  {
+    "name": "Meeko",
+    "role": "Scientific computation",
+    "documentation": "https://meeko.readthedocs.io/",
+    "pinned_version": "0.7.1",
+    "inputs": [
+      "prepared explicit-H SDF"
+    ],
+    "outputs": [
+      "ligand PDBQT"
+    ],
+    "dependencies": [
+      "meeko"
+    ],
+    "hardware": "CPU",
+    "code_terms": "See pinned upstream license; PLIP GPL-2.0, Vina Apache-2.0, RDKit BSD-3-Clause",
+    "data_terms": "Source-specific terms; retain provenance",
+    "model_terms": null,
+    "external_data": "None",
+    "cost_class": "local",
+    "implementation_status": "implemented supported adapter",
+    "validation_status": "See docs/science.md; health does not establish scientific validity",
+    "health_check": "available"
+  },
+  {
+    "name": "AutoDock Vina",
+    "role": "Scientific computation",
+    "documentation": "https://autodock-vina.readthedocs.io/",
+    "pinned_version": "1.2.7",
+    "inputs": [
+      "receptor / ligand PDBQT + box"
+    ],
+    "outputs": [
+      "poses + Vina score (kcal/mol)"
+    ],
+    "dependencies": [
+      "vina"
+    ],
+    "hardware": "CPU",
+    "code_terms": "See pinned upstream license; PLIP GPL-2.0, Vina Apache-2.0, RDKit BSD-3-Clause",
+    "data_terms": "Source-specific terms; retain provenance",
+    "model_terms": null,
+    "external_data": "None",
+    "cost_class": "local",
+    "implementation_status": "implemented supported adapter",
+    "validation_status": "See docs/science.md; health does not establish scientific validity",
+    "health_check": "available"
+  },
+  {
+    "name": "PoseBusters",
+    "role": "Scientific computation",
+    "documentation": "https://github.com/maabuu/posebusters",
+    "pinned_version": "0.5.1",
+    "inputs": [
+      "SDF pose + original ligand + receptor"
+    ],
+    "outputs": [
+      "physical validity flags"
+    ],
+    "dependencies": [
+      "posebusters"
+    ],
+    "hardware": "CPU",
+    "code_terms": "See pinned upstream license; PLIP GPL-2.0, Vina Apache-2.0, RDKit BSD-3-Clause",
+    "data_terms": "Source-specific terms; retain provenance",
+    "model_terms": null,
+    "external_data": "None",
+    "cost_class": "local",
+    "implementation_status": "implemented supported adapter",
+    "validation_status": "See docs/science.md; health does not establish scientific validity",
+    "health_check": "available"
+  },
+  {
+    "name": "PLIP",
+    "role": "Scientific computation",
+    "documentation": "https://github.com/pharmai/plip",
+    "pinned_version": "2.4.0",
+    "inputs": [
+      "complex PDB"
+    ],
+    "outputs": [
+      "interaction XML"
+    ],
+    "dependencies": [
+      "plip"
+    ],
+    "hardware": "CPU",
+    "code_terms": "See pinned upstream license; PLIP GPL-2.0, Vina Apache-2.0, RDKit BSD-3-Clause",
+    "data_terms": "Source-specific terms; retain provenance",
+    "model_terms": null,
+    "external_data": "None",
+    "cost_class": "local",
+    "implementation_status": "implemented supported adapter",
+    "validation_status": "See docs/science.md; health does not establish scientific validity",
+    "health_check": "available"
+  },
+  {
+    "name": "PDBFixer",
+    "role": "Scientific computation",
+    "documentation": "https://github.com/openmm/pdbfixer",
+    "pinned_version": "1.12",
+    "inputs": [
+      "protein PDB"
+    ],
+    "outputs": [
+      "proposed repairs / prepared PDB"
+    ],
+    "dependencies": [
+      "pdbfixer"
+    ],
+    "hardware": "CPU",
+    "code_terms": "See pinned upstream license; PLIP GPL-2.0, Vina Apache-2.0, RDKit BSD-3-Clause",
+    "data_terms": "Source-specific terms; retain provenance",
+    "model_terms": null,
+    "external_data": "None",
+    "cost_class": "local",
+    "implementation_status": "implemented supported adapter",
+    "validation_status": "See docs/science.md; health does not establish scientific validity",
+    "health_check": "available"
+  },
+  {
+    "name": "PDB2PQR / PROPKA",
+    "role": "Scientific computation",
+    "documentation": "https://pdb2pqr.readthedocs.io/",
+    "pinned_version": "3.7.1",
+    "inputs": [
+      "supported protein PDB + explicit pH"
+    ],
+    "outputs": [
+      "PQR + protonation log"
+    ],
+    "dependencies": [
+      "pdb2pqr"
+    ],
+    "hardware": "CPU",
+    "code_terms": "See pinned upstream license; PLIP GPL-2.0, Vina Apache-2.0, RDKit BSD-3-Clause",
+    "data_terms": "Source-specific terms; retain provenance",
+    "model_terms": null,
+    "external_data": "None",
+    "cost_class": "local",
+    "implementation_status": "implemented supported adapter",
+    "validation_status": "See docs/science.md; health does not establish scientific validity",
+    "health_check": "available"
+  },
+  {
+    "name": "OpenAI Responses",
+    "role": "Read-only evidence advisor",
+    "documentation": "https://developers.openai.com/api/docs/guides/function-calling",
+    "pinned_version": "openai==2.26.0",
+    "inputs": [
+      "public project context + untrusted evidence"
+    ],
+    "outputs": [
+      "strict structured advisory proposal"
+    ],
+    "dependencies": [
+      "OPENAI_API_KEY"
+    ],
+    "hardware": "CPU",
+    "code_terms": "See official documentation",
+    "data_terms": "Source-specific terms; retain provenance",
+    "model_terms": null,
+    "external_data": "Explicit opt-in; project context and cited evidence sent to OpenAI",
+    "cost_class": "paid API",
+    "implementation_status": "implemented",
+    "validation_status": "mock-tested; live model unverified without credentials",
+    "health_check": "missing credential"
+  },
+  {
+    "name": "GNINA",
+    "implementation_status": "deferred",
+    "validation_status": "not implemented",
+    "health_check": "unavailable",
+    "role": "Optional later workflow"
+  },
+  {
+    "name": "Boltz-2",
+    "implementation_status": "deferred",
+    "validation_status": "not implemented",
+    "health_check": "unavailable",
+    "role": "Optional later workflow"
+  },
+  {
+    "name": "AlphaFold prediction",
+    "implementation_status": "deferred",
+    "validation_status": "not implemented",
+    "health_check": "unavailable",
+    "role": "Optional later workflow"
+  },
+  {
+    "name": "ADMET-AI",
+    "implementation_status": "deferred",
+    "validation_status": "not implemented",
+    "health_check": "unavailable",
+    "role": "Optional later workflow"
+  },
+  {
+    "name": "OpenMM / GROMACS",
+    "implementation_status": "deferred",
+    "validation_status": "not implemented",
+    "health_check": "unavailable",
+    "role": "Optional later workflow"
+  },
+  {
+    "name": "OpenFE",
+    "implementation_status": "deferred",
+    "validation_status": "not implemented",
+    "health_check": "unavailable",
+    "role": "Optional later workflow"
+  },
+  {
+    "name": "Generative chemistry",
+    "implementation_status": "deferred",
+    "validation_status": "not implemented",
+    "health_check": "unavailable",
+    "role": "Optional later workflow"
+  }
+]
