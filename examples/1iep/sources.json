@@ -1,0 +1,37 @@
+{
+  "retrieved_date": "2026-09-26",
+  "target": {
+    "pdb_id": "1IEP",
+    "uniprot": "P00520",
+    "organism": "Mus musculus",
+    "source_url": "https://www.rcsb.org/structure/1IEP"
+  },
+  "source_version": "AutoDock-Vina v1.2.7",
+  "license": "Apache-2.0 (LICENSE.autodock-vina)",
+  "files": [
+    {
+      "path": "examples/1iep/originals/1iep_receptor.pdbqt",
+      "sha256": "f13cf3b36f61d87c3b58983e0b8ecf1c3456a685eb86dfe9ccfb139c7bdc2586",
+      "url": "https://raw.githubusercontent.com/ccsb-scripps/AutoDock-Vina/v1.2.7/example/basic_docking/solution/1iep_receptor.pdbqt"
+    },
+    {
+      "path": "examples/1iep/originals/1iep_receptorH.pdb",
+      "sha256": "5f6aee6029f9a2a2c2be32d4eb948ae70808690573e1b69a0850cdffd7048ca7",
+      "url": "https://raw.githubusercontent.com/ccsb-scripps/AutoDock-Vina/v1.2.7/example/basic_docking/data/1iep_receptorH.pdb"
+    },
+    {
+      "path": "examples/1iep/originals/1iep_ligand.sdf",
+      "sha256": "051b8742c32adc05c07fb486a4e7c9327f84e131cee33ac4e6a568d07553eb38",
+      "url": "https://raw.githubusercontent.com/ccsb-scripps/AutoDock-Vina/v1.2.7/example/basic_docking/data/1iep_ligand.sdf"
+    }
+  ],
+  "vina_binary": {
+    "source": "https://github.com/ccsb-scripps/AutoDock-Vina/releases/download/v1.2.7/vina_1.2.7_mac_aarch64",
+    "sha256": "823c2bbacf26d72183861322345f0a89736aca66c8e81054c66f93af5ad623f1"
+  },
+  "derived_library": {
+    "path": "library.sdf",
+    "sha256": "c317d3172112e66671e9265aa4ad58c3efadb15c155bc5317b34f6d28d008ccd",
+    "changes": "Added metadata to bound ligand; appended untested manually entered caffeine and aspirin control structures."
+  }
+}

@@ -1,0 +1,18 @@
+{
+  "example_kind": "actual_local_calculation_not_fixture",
+  "target_accession": "P00520",
+  "organism": "Mus musculus",
+  "pdb_id": "1IEP",
+  "chain": "A (curated tutorial receptor)",
+  "ligand_id": "STI",
+  "seed": 42,
+  "cpu": 1,
+  "exhaustiveness": 4,
+  "n_poses": 3,
+  "timeout_seconds": 180,
+  "box_padding_angstrom": 4.0,
+  "exploratory": true,
+  "benchmark_status": "no_independent_actives_inactives",
+  "pH": null,
+  "protonation": "tutorial receptor state and ligand formal charges retained; no new pH prediction"
+}
